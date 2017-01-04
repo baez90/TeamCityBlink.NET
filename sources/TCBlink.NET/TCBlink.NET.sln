@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCBlink.NET.Explorer", "TCBlink.NET.Explorer\TCBlink.NET.Explorer.csproj", "{FEC9D60B-9365-46EE-B9F6-1C9B0E32005E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HidLibrary", "HidLibrary\HidLibrary.csproj", "{9E8F1D50-74EA-4C60-BD5C-AB2C5B53BC66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blink1", "Blink1\Blink1.csproj", "{ACF2E926-F922-45A8-874B-967AD04BB837}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEC9D60B-9365-46EE-B9F6-1C9B0E32005E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC9D60B-9365-46EE-B9F6-1C9B0E32005E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC9D60B-9365-46EE-B9F6-1C9B0E32005E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC9D60B-9365-46EE-B9F6-1C9B0E32005E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8F1D50-74EA-4C60-BD5C-AB2C5B53BC66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8F1D50-74EA-4C60-BD5C-AB2C5B53BC66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8F1D50-74EA-4C60-BD5C-AB2C5B53BC66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8F1D50-74EA-4C60-BD5C-AB2C5B53BC66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACF2E926-F922-45A8-874B-967AD04BB837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF2E926-F922-45A8-874B-967AD04BB837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF2E926-F922-45A8-874B-967AD04BB837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF2E926-F922-45A8-874B-967AD04BB837}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
