@@ -197,6 +197,10 @@
       <Project>{acf2e926-f922-45a8-874b-967ad04bb837}</Project>
       <Name>Blink1</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TCBlink.NET.Common\TCBlink.NET.Common.csproj">
+      <Project>{650058bd-de0e-461a-9485-fcf279d984e0}</Project>
+      <Name>TCBlink.NET.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

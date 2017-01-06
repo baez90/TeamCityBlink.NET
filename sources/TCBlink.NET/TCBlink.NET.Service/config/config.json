@@ -1,0 +1,13 @@
+﻿{
+  "ColorConfig": {
+    "SuccessColor": "#FF00FF00",
+    "ErrorColor": "#FFFF0000"
+  },
+  "TeamCityConfig": {
+    "PollingInterval": 10000.0,
+    "HostName": "teamcity.example.com",
+    "UserName": null,
+    "Password": null,
+    "UseSsl": true
+  }
+}
