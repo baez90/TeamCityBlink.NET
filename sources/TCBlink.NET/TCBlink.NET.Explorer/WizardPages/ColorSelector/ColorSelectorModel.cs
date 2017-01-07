@@ -3,17 +3,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
-using TCBlink.NET.Explorer.Models;
+using TCBlink.NET.Common;
 using ThingM.Blink1;
 
 namespace TCBlink.NET.Explorer.WizardPages.ColorSelector
 {
     public class ColorSelectorModel : ViewModelBase, IDisposable
     {
-        private readonly Blink1 _blink;
-        private readonly BlinkConfig _blinkConfig;
 
-        public ColorSelectorModel(BlinkConfig blinkConfig)
+        #region fields
+
+        private readonly Blink1 _blink;
+        private readonly TCBlinkConfig _blinkConfig;
+
+        #endregion
+
+        #region constructors
+
+        public ColorSelectorModel(TCBlinkConfig blinkConfig)
         {
             _blinkConfig = blinkConfig;
 
@@ -23,24 +30,26 @@ namespace TCBlink.NET.Explorer.WizardPages.ColorSelector
             UpdateSelectedColor = new RelayCommand<Color>(UpdateBlinkColor);
         }
 
+        #endregion
+
         #region properties
 
         public Color SuccessColor
         {
-            get { return _blinkConfig.SuccessColor; }
+            get { return _blinkConfig.ColorConfig.SuccessColor; }
             set
             {
-                _blinkConfig.SuccessColor = value;
+                _blinkConfig.ColorConfig.SuccessColor = value;
                 RaisePropertyChanged();
             }
         }
 
         public Color ErrorColor
         {
-            get { return _blinkConfig.ErrorColor; }
+            get { return _blinkConfig.ColorConfig.ErrorColor; }
             set
             {
-                _blinkConfig.ErrorColor = value;
+                _blinkConfig.ColorConfig.ErrorColor = value;
                 RaisePropertyChanged();
             }
         }

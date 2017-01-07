@@ -1,8 +1,10 @@
 using System.Linq;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using TCBlink.NET.Explorer.Models;
+using TCBlink.NET.Common;
 using TCBlink.NET.Explorer.WizardPages.ColorSelector;
+using TCBlink.NET.Explorer.WizardPages.TeamCityBuild;
+using TCBlink.NET.Explorer.WizardPages.TeamCityConnection;
 
 namespace TCBlink.NET.Explorer.ViewModel
 {
@@ -13,7 +15,7 @@ namespace TCBlink.NET.Explorer.ViewModel
     public class ViewModelLocator
     {
 
-        private static readonly BlinkConfig _blinkConfig = new BlinkConfig();
+        private static readonly TCBlinkConfig _blinkConfig = new TCBlinkConfig();
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -23,13 +25,19 @@ namespace TCBlink.NET.Explorer.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register(() => new MainViewModel());
             SimpleIoc.Default.Register(() => new ColorSelectorModel(_blinkConfig));
+            SimpleIoc.Default.Register(() => new TeamCityConnectionModel(_blinkConfig));
+            SimpleIoc.Default.Register(() => new TeamCityBuildSelectorModel(_blinkConfig));
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
 
         public ColorSelectorModel ColorSelector => ServiceLocator.Current.GetInstance<ColorSelectorModel>();
 
-        public static BlinkConfig BlinkConfig => _blinkConfig;
+        public TeamCityConnectionModel TeamCityConnection => ServiceLocator.Current.GetInstance<TeamCityConnectionModel>();
+
+        public TeamCityBuildSelectorModel TeamCityBuildSelector => ServiceLocator.Current.GetInstance<TeamCityBuildSelectorModel>();
+
+        public static TCBlinkConfig BlinkConfig => _blinkConfig;
 
         public static void Cleanup()
         {

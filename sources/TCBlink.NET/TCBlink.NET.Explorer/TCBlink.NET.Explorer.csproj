@@ -113,7 +113,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\BlinkConfig.cs" />
+    <Compile Include="Converters\NullableBooleanColorConverter.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="WizardPages\ColorSelector\BlinkColorSelectori18n.Designer.cs">
@@ -125,6 +125,15 @@
       <DependentUpon>BlinkColorSelector.xaml</DependentUpon>
     </Compile>
     <Compile Include="WizardPages\ColorSelector\ColorSelectorModel.cs" />
+    <Compile Include="WizardPages\TeamCityBuild\TeamCityBuildSelector.xaml.cs">
+      <DependentUpon>TeamCityBuildSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\TeamCityBuild\TeamCityBuildSelectori18n.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeamCityBuildSelectori18n.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\TeamCityBuild\TeamCityBuildSelectorModel.cs" />
     <Compile Include="WizardPages\TeamCityConnection\TeamCityConnection.xaml.cs">
       <DependentUpon>TeamCityConnection.xaml</DependentUpon>
     </Compile>
@@ -133,6 +142,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TeamCityConnectioni18n.resx</DependentUpon>
     </Compile>
+    <Compile Include="WizardPages\TeamCityConnection\TeamCityConnectionModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -146,6 +156,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="WizardPages\ColorSelector\BlinkColorSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WizardPages\TeamCityBuild\TeamCityBuildSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +190,11 @@
     <EmbeddedResource Include="WizardPages\ColorSelector\BlinkColorSelectori18n.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BlinkColorSelectori18n.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\TeamCityBuild\TeamCityBuildSelectori18n.de-DE.resx" />
+    <EmbeddedResource Include="WizardPages\TeamCityBuild\TeamCityBuildSelectori18n.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TeamCityBuildSelectori18n.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="WizardPages\TeamCityConnection\TeamCityConnectioni18n.de-DE.resx" />
     <EmbeddedResource Include="WizardPages\TeamCityConnection\TeamCityConnectioni18n.resx">

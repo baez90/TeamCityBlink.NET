@@ -10,7 +10,7 @@
 
         public string Password { get; set; }
 
-        public bool UseSsl { get; set; }
+        public bool UseSsl { get; set; } = true;
 
         public string BuildConfigurationId { get; set; }
 

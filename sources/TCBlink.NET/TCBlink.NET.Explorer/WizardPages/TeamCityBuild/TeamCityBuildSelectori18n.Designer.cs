@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TCBlink.NET.Explorer.WizardPages.TeamCityConnection {
+namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityConnection {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class TeamCityConnectioni18n {
+    public class TeamCityBuildSelectori18n {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal TeamCityConnectioni18n() {
+        internal TeamCityBuildSelectori18n() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityConnection {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TCBlink.NET.Explorer.WizardPages.TeamCityConnection.TeamCityConnectioni18n", typeof(TeamCityConnectioni18n).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TCBlink.NET.Explorer.WizardPages.TeamCityBuild.TeamCityBuildSelectori18n", typeof(TeamCityBuildSelectori18n).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,61 +61,52 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityConnection {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connecting to TeamCity....
+        ///   Looks up a localized string similar to BuildConfiguration name.
         /// </summary>
-        public static string BusyIndicatorLbl {
+        public static string ConfigurationNameLbl {
             get {
-                return ResourceManager.GetString("BusyIndicatorLbl", resourceCulture);
+                return ResourceManager.GetString("ConfigurationNameLbl", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connection state.
+        ///   Looks up a localized string similar to BuildConfigurationId.
         /// </summary>
-        public static string ConnectionStateLbl {
+        public static string IdColumnLbl {
             get {
-                return ResourceManager.GetString("ConnectionStateLbl", resourceCulture);
+                return ResourceManager.GetString("IdColumnLbl", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TeamCity Host (including port).
+        ///   Looks up a localized string similar to Description.
         /// </summary>
-        public static string HostnameLbl {
+        public static string ProjectDescriptionLbl {
             get {
-                return ResourceManager.GetString("HostnameLbl", resourceCulture);
+                return ResourceManager.GetString("ProjectDescriptionLbl", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Project name.
         /// </summary>
-        public static string PasswordLbl {
+        public static string ProjectNameLbl {
             get {
-                return ResourceManager.GetString("PasswordLbl", resourceCulture);
+                return ResourceManager.GetString("ProjectNameLbl", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username.
+        ///   Looks up a localized string similar to Update.
         /// </summary>
-        public static string UsernameLbl {
+        public static string UpdateBtnLbl {
             get {
-                return ResourceManager.GetString("UsernameLbl", resourceCulture);
+                return ResourceManager.GetString("UpdateBtnLbl", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use SSL.
-        /// </summary>
-        public static string UseSslLbl {
-            get {
-                return ResourceManager.GetString("UseSslLbl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure connection to the TeamCity host.
+        ///   Looks up a localized string similar to Choose a build configuration to monitor.
         /// </summary>
         public static string WizardDescription {
             get {
@@ -124,7 +115,7 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityConnection {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TeamCity Host.
+        ///   Looks up a localized string similar to TeamCity build configuration.
         /// </summary>
         public static string WizardTitle {
             get {

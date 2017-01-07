@@ -1,0 +1,36 @@
+﻿<xctk:WizardPage x:Class="TCBlink.NET.Explorer.WizardPages.TeamCityBuild.TeamCityBuildSelector"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:tcbs="clr-namespace:TCBlink.NET.Explorer.WizardPages.TeamCityBuild"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 mc:Ignorable="d"
+                 d:DesignHeight="300" d:DesignWidth="300"
+                 DataContext="{Binding TeamCityBuildSelector, Source={StaticResource Locator}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding AvailableBuildConfigurations}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" 
+                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.IdColumnLbl}"/>
+                <DataGridTextColumn Binding="{Binding Name}"
+                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.ConfigurationNameLbl}"/>
+                <DataGridTextColumn Binding="{Binding ProjectName}"
+                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.ProjectNameLbl}"/>
+                <DataGridTextColumn Binding="{Binding Description}"
+                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.ProjectDescriptionLbl}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="{x:Static tcbs:TeamCityBuildSelectori18n.UpdateBtnLbl}"
+                Command="{Binding UpdateAvailableBuildConfigurations}"
+                Margin="5"
+                Grid.Row="1"/>
+    </Grid>
+</xctk:WizardPage>

@@ -6,6 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:cs="clr-namespace:TCBlink.NET.Explorer.WizardPages.ColorSelector"
         xmlns:tcc="clr-namespace:TCBlink.NET.Explorer.WizardPages.TeamCityConnection"
+        xmlns:tcb="clr-namespace:TCBlink.NET.Explorer.WizardPages.TeamCityBuild"
         mc:Ignorable="d"
         Title="MainWindow" Height="480" Width="800" DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid>
@@ -14,9 +15,17 @@
                                    Title="{x:Static cs:BlinkColorSelectori18n.WizardTitle}"
                                    Description="{x:Static cs:BlinkColorSelectori18n.WizardDescription}"
                                    NextPage="{Binding ElementName=TeamCityConnection}" />
-            
+
             <tcc:TeamCityConnection x:Name="TeamCityConnection"
-                                    PreviousPage="{Binding ElementName=BlinkColorSelector}"/>
+                                    Title="{x:Static tcc:TeamCityConnectioni18n.WizardTitle}"
+                                    Description="{x:Static tcc:TeamCityConnectioni18n.WizardDescription}"
+                                    PreviousPage="{Binding ElementName=BlinkColorSelector}"
+                                    NextPage="{Binding ElementName=TeamCityBuildSelector}" />
+
+            <tcb:TeamCityBuildSelector x:Name="TeamCityBuildSelector"
+                                       Title="{x:Static tcb:TeamCityBuildSelectori18n.WizardTitle}"
+                                       Description="{x:Static tcb:TeamCityBuildSelectori18n.WizardDescription}"
+                                       PreviousPage="{Binding ElementName=TeamCityConnection}" />
         </xctk:Wizard>
 
     </Grid>
