@@ -17,6 +17,8 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild
         private readonly TCBlinkConfig _blinkConfig;
         private ObservableCollection<BuildConfig> _availableBuildConfigurations;
         private BuildConfig _selectedBuildConfig;
+        private bool _isLoading;
+        private bool _isValid;
 
         #endregion
 
@@ -31,6 +33,26 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild
         #endregion
 
         #region properties
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                _isLoading = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsValid
+        {
+            get { return _isValid; }
+            set
+            {
+                _isValid = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public ObservableCollection<BuildConfig> AvailableBuildConfigurations
         {
@@ -47,9 +69,11 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild
             get { return _selectedBuildConfig; }
             set
             {
+                if (value == null) return;
                 _selectedBuildConfig = value;
                 RaisePropertyChanged();
                 _blinkConfig.TeamCityConfig.BuildConfigurationId = value.Id;
+                IsValid = true;
             }
         }
 
@@ -65,6 +89,7 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild
 
         private async Task GetAvailableBuildConfigurations()
         {
+            IsLoading = true;
             await Task.Run(() =>
             {
                 var tcClient = new TeamCityClient(_blinkConfig.TeamCityConfig.HostName, _blinkConfig.TeamCityConfig.UseSsl);
@@ -73,6 +98,7 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild
                 {
                     AvailableBuildConfigurations = new ObservableCollection<BuildConfig>(tcClient.BuildConfigs.All());
                 }
+                IsLoading = false;
             });
         }
 

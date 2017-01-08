@@ -13,35 +13,51 @@
     <xctk:WizardPage.Resources>
         <converters:NullableBooleanColorConverter x:Key="ColorConverter" />
     </xctk:WizardPage.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="3*" />
-        </Grid.ColumnDefinitions>
-        <Label Content="{x:Static tcbs:TeamCityBranchSelectori18n.BranchLbl}"
-               Grid.Row="1" Grid.Column="0" />
+    <xctk:BusyIndicator BusyContent="{x:Static tcbs:TeamCityBranchSelectori18n.BusyIndicatorLbl}" IsBusy="{Binding IsLoading}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="{x:Static tcbs:TeamCityBranchSelectori18n.BranchLbl}"
+                   Grid.Row="1" Grid.Column="0" />
 
-        <TextBox Text="{Binding Branch, UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="1" Grid.Column="1" />
+            <TextBox Text="{Binding Branch, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalContentAlignment="Center"
+                     Grid.Row="1" Grid.Column="1">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding CheckBranch}"/>
+                </TextBox.InputBindings>
+            </TextBox>
+            
+            <Label Content="{x:Static tcbs:TeamCityBranchSelectori18n.PollingLbl}"
+                   Grid.Row="3" Grid.Column="0"/>
+            
+            <xctk:DoubleUpDown Value="{Binding PollingInterval}"
+                               VerticalContentAlignment="Center"
+                               Grid.Row="3" Grid.Column="1"/>
 
-        <Label Content="{x:Static tcbs:TeamCityBranchSelectori18n.ConnectionStateLbl}"
-               Grid.Row="3" Grid.Column="0" />
+            <Label Content="{x:Static tcbs:TeamCityBranchSelectori18n.ConnectionStateLbl}"
+                   Grid.Row="5" Grid.Column="0" />
 
-        <Rectangle Stroke="Black" Fill="{Binding IsValid, Converter={StaticResource ColorConverter}}"
-                   Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
-                   Grid.Row="3" Grid.Column="1" />
+            <Rectangle Stroke="Black" Fill="{Binding IsValid, Converter={StaticResource ColorConverter}}"
+                       Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                       Grid.Row="5" Grid.Column="1" />
 
-        <Button Content="{x:Static tcbs:TeamCityBranchSelectori18n.TestConnectionBtnLbl}"
-                Command="{Binding CheckBranch}"
-                Grid.Row="5" Grid.Column="1" />
-    </Grid>
+            <Button Content="{x:Static tcbs:TeamCityBranchSelectori18n.TestConnectionBtnLbl}"
+                    Command="{Binding CheckBranch}"
+                    Grid.Row="7" Grid.Column="1" />
+        </Grid>
+    </xctk:BusyIndicator>
 </xctk:WizardPage>

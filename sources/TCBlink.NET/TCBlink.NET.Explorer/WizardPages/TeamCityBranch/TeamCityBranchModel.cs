@@ -34,16 +34,14 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBranch
                     Title = "Save configuration"
                 };
 
-                if (saveDialog.ShowDialog(Application.Current.MainWindow).Value)
+                if (!saveDialog.ShowDialog(Application.Current.MainWindow).Value) return;
+                try
                 {
-                    try
-                    {
-                        File.WriteAllText(saveDialog.FileName, JsonConvert.SerializeObject(_blinkConfig));
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show(Application.Current.MainWindow, "Failed to save configuration", "Error", MessageBoxButton.OK);
-                    }
+                    File.WriteAllText(saveDialog.FileName, JsonConvert.SerializeObject(_blinkConfig));
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(Application.Current.MainWindow, "Failed to save configuration", "Error", MessageBoxButton.OK);
                 }
             }));
         }
@@ -60,24 +58,27 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBranch
 
         private async Task CheckIfBranchExists()
         {
+            IsLoading = true;
             await Task.Run(() =>
             {
                 try
                 {
                     var tcClient = new TeamCityClient(_blinkConfig.TeamCityConfig.HostName, _blinkConfig.TeamCityConfig.UseSsl);
                     tcClient.Connect(_blinkConfig.TeamCityConfig.UserName, _blinkConfig.TeamCityConfig.Password);
-                    if (tcClient.Authenticate())
-                    {
-                        var latestBuild = tcClient.Builds
-                            .ByBuildLocator(BuildLocator.WithDimensions(BuildTypeLocator.WithId(_blinkConfig.TeamCityConfig.BuildConfigurationId), branch: Branch, maxResults: 1))
-                            .SingleOrDefault();
+                    if (!tcClient.Authenticate()) return;
+                    var latestBuild = tcClient.Builds
+                        .ByBuildLocator(BuildLocator.WithDimensions(BuildTypeLocator.WithId(_blinkConfig.TeamCityConfig.BuildConfigurationId), branch: Branch, maxResults: 1))
+                        .SingleOrDefault();
 
-                        IsValid = latestBuild != null;
-                    }
+                    IsValid = latestBuild != null;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     IsValid = false;
+                }
+                finally
+                {
+                    IsLoading = false;
                 }
             });
         }
@@ -88,6 +89,7 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBranch
 
         private readonly TCBlinkConfig _blinkConfig;
         private bool _isValid;
+        private bool _isLoading;
 
         #endregion
 
@@ -119,6 +121,16 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBranch
             set
             {
                 _isValid = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                _isLoading = value;
                 RaisePropertyChanged();
             }
         }

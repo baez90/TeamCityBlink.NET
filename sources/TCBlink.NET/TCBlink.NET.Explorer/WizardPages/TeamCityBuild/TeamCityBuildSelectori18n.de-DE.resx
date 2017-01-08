@@ -118,4 +118,7 @@
   <data name="WizardDescription" xml:space="preserve">
     <value>Bitte wählen Sie eine Build Configuration welche überwacht werden soll.</value>
   </data>
+  <data name="BusyIndicatorLbl" xml:space="preserve">
+    <value>Laden der Builds von TeamCity Instanz</value>
+  </data>
 </root>

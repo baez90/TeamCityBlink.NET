@@ -109,4 +109,10 @@
   <data name="TestConnectionBtnLbl" xml:space="preserve">
     <value>Test connection</value>
   </data>
+  <data name="BusyIndicatorLbl" xml:space="preserve">
+    <value>Check if branch exists</value>
+  </data>
+  <data name="PollingLbl" xml:space="preserve">
+    <value>Polling interval in ms</value>
+  </data>
 </root>

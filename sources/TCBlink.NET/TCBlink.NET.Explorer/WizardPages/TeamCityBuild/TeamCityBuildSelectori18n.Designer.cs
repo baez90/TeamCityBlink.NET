@@ -61,6 +61,15 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fetching builds from TeamCity instance.
+        /// </summary>
+        public static string BusyIndicatorLbl {
+            get {
+                return ResourceManager.GetString("BusyIndicatorLbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BuildConfiguration name.
         /// </summary>
         public static string ConfigurationNameLbl {

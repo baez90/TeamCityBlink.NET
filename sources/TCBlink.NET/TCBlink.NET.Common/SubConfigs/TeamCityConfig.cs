@@ -2,7 +2,7 @@
 {
     public class TeamCityConfig
     {
-        public double PollingInterval { get; set; }
+        public double PollingInterval { get; set; } = 10000d;
 
         public string HostName { get; set; }
 

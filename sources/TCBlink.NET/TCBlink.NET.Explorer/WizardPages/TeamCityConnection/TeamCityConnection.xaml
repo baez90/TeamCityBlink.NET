@@ -13,7 +13,7 @@
     <xctk:WizardPage.Resources>
         <converters:NullableBooleanColorConverter x:Key="ColorConverter" />
     </xctk:WizardPage.Resources>
-    <xctk:BusyIndicator IsBusy="{Binding IsTesting}" BusyContent="Connecting to TeamCity">
+    <xctk:BusyIndicator IsBusy="{Binding IsTesting}" BusyContent="{x:Static tcc:TeamCityConnectioni18n.BusyIndicatorLbl}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -37,7 +37,7 @@
             <Label Content="{x:Static tcc:TeamCityConnectioni18n.HostnameLbl}"
                    Grid.Row="1" Grid.Column="0" />
 
-            <TextBox Text="{Binding Host}"
+            <TextBox Text="{Binding Host, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Row="1" Grid.Column="1"
                      VerticalContentAlignment="Center"/>
 

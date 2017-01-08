@@ -70,11 +70,29 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBranch {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check if branch exists.
+        /// </summary>
+        public static string BusyIndicatorLbl {
+            get {
+                return ResourceManager.GetString("BusyIndicatorLbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connection state.
         /// </summary>
         public static string ConnectionStateLbl {
             get {
                 return ResourceManager.GetString("ConnectionStateLbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polling interval in ms.
+        /// </summary>
+        public static string PollingLbl {
+            get {
+                return ResourceManager.GetString("PollingLbl", resourceCulture);
             }
         }
         

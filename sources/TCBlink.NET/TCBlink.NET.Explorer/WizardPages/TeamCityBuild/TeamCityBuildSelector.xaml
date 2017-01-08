@@ -7,31 +7,34 @@
                  xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
                  mc:Ignorable="d"
                  d:DesignHeight="300" d:DesignWidth="300"
-                 DataContext="{Binding TeamCityBuildSelector, Source={StaticResource Locator}}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding AvailableBuildConfigurations}"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  SelectedItem="{Binding SelectedBuildConfig}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" 
-                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.IdColumnLbl}"/>
-                <DataGridTextColumn Binding="{Binding Name}"
-                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.ConfigurationNameLbl}"/>
-                <DataGridTextColumn Binding="{Binding ProjectName}"
-                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.ProjectNameLbl}"/>
-                <DataGridTextColumn Binding="{Binding Description}"
-                                    Header="{x:Static tcbs:TeamCityBuildSelectori18n.ProjectDescriptionLbl}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Content="{x:Static tcbs:TeamCityBuildSelectori18n.UpdateBtnLbl}"
-                Command="{Binding UpdateAvailableBuildConfigurations}"
-                Margin="5"
-                Grid.Row="1"/>
-    </Grid>
+                 DataContext="{Binding TeamCityBuildSelector, Source={StaticResource Locator}}"
+                 CanSelectNextPage="{Binding IsValid}">
+    <xctk:BusyIndicator BusyContent="{x:Static tcbs:TeamCityBuildSelectori18n.BusyIndicatorLbl}" IsBusy="{Binding IsLoading}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <DataGrid ItemsSource="{Binding AvailableBuildConfigurations}"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      SelectedItem="{Binding SelectedBuildConfig}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}"
+                                        Header="{x:Static tcbs:TeamCityBuildSelectori18n.IdColumnLbl}" />
+                    <DataGridTextColumn Binding="{Binding Name}"
+                                        Header="{x:Static tcbs:TeamCityBuildSelectori18n.ConfigurationNameLbl}" />
+                    <DataGridTextColumn Binding="{Binding ProjectName}"
+                                        Header="{x:Static tcbs:TeamCityBuildSelectori18n.ProjectNameLbl}" />
+                    <DataGridTextColumn Binding="{Binding Description}"
+                                        Header="{x:Static tcbs:TeamCityBuildSelectori18n.ProjectDescriptionLbl}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="{x:Static tcbs:TeamCityBuildSelectori18n.UpdateBtnLbl}"
+                    Command="{Binding UpdateAvailableBuildConfigurations}"
+                    Margin="5"
+                    Grid.Row="1" />
+        </Grid>
+    </xctk:BusyIndicator>
 </xctk:WizardPage>

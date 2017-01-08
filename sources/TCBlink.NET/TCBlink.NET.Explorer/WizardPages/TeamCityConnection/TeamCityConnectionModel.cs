@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
@@ -17,7 +16,7 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityConnection
         public TeamCityConnectionModel(TCBlinkConfig blinkConfig)
         {
             _blinkConfig = blinkConfig;
-            TestTeamCityConnection = new RelayCommand<PasswordBox>(async pwdBox => await ValidateTeamCityConnection(pwdBox));
+            TestTeamCityConnection = new RelayCommand<PasswordBox>(async pwdBox => await ValidateTeamCityConnection(pwdBox), box => !string.IsNullOrEmpty(Host));
         }
 
         #endregion
