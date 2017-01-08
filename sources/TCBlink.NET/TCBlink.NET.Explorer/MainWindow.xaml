@@ -7,10 +7,20 @@
         xmlns:cs="clr-namespace:TCBlink.NET.Explorer.WizardPages.ColorSelector"
         xmlns:tcc="clr-namespace:TCBlink.NET.Explorer.WizardPages.TeamCityConnection"
         xmlns:tcb="clr-namespace:TCBlink.NET.Explorer.WizardPages.TeamCityBuild"
+        xmlns:tcbs="clr-namespace:TCBlink.NET.Explorer.WizardPages.TeamCityBranch"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="http://www.galasoft.ch/mvvmlight"
+        xmlns:explorer="clr-namespace:TCBlink.NET.Explorer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="800" DataContext="{Binding Main, Source={StaticResource Locator}}">
+        Title="MainWindow" Height="480" Width="800"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid>
         <xctk:Wizard HelpButtonVisibility="Hidden">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Finish">
+                    <command:EventToCommand Command="{Binding Finish}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <cs:BlinkColorSelector x:Name="BlinkColorSelector"
                                    Title="{x:Static cs:BlinkColorSelectori18n.WizardTitle}"
                                    Description="{x:Static cs:BlinkColorSelectori18n.WizardDescription}"
@@ -26,6 +36,9 @@
                                        Title="{x:Static tcb:TeamCityBuildSelectori18n.WizardTitle}"
                                        Description="{x:Static tcb:TeamCityBuildSelectori18n.WizardDescription}"
                                        PreviousPage="{Binding ElementName=TeamCityConnection}" />
+
+            <tcbs:TeamCityBranchSelector Title="{x:Static tcbs:TeamCityBranchSelectori18n.WizardTitle}"
+                                         x:Name="TeamCityBranchSelector" />
         </xctk:Wizard>
 
     </Grid>

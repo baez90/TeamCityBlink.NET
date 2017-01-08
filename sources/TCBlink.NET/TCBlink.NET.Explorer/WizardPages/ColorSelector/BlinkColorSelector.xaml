@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Label Content="{x:Static cs:BlinkColorSelectori18n.SuccessColorLbl}"
                Grid.Row="1" Grid.Column="0" />

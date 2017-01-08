@@ -16,6 +16,7 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild
 
         private readonly TCBlinkConfig _blinkConfig;
         private ObservableCollection<BuildConfig> _availableBuildConfigurations;
+        private BuildConfig _selectedBuildConfig;
 
         #endregion
 
@@ -38,6 +39,17 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityBuild
             {
                 _availableBuildConfigurations = value;
                 RaisePropertyChanged();
+            }
+        }
+
+        public BuildConfig SelectedBuildConfig
+        {
+            get { return _selectedBuildConfig; }
+            set
+            {
+                _selectedBuildConfig = value;
+                RaisePropertyChanged();
+                _blinkConfig.TeamCityConfig.BuildConfigurationId = value.Id;
             }
         }
 

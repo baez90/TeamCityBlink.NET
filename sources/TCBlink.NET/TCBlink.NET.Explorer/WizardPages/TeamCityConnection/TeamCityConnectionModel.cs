@@ -34,23 +34,20 @@ namespace TCBlink.NET.Explorer.WizardPages.TeamCityConnection
         {
             IsTesting = true;
             var password = pwdBox.Password;
-            await Task.Run(async () =>
+            await Task.Run(() =>
             {
                 var tcClient = new TeamCityClient(Host, UseSsl);
                 tcClient.Connect(UserName, password);
-                await Application.Current.Dispatcher.InvokeAsync(() =>
+                try
                 {
-                    try
-                    {
-                        IsValid = tcClient.Authenticate();
-                    }
-                    catch (Exception e)
-                    {
-                        IsValid = false;
-                    }
-                    IsTesting = false;
-                    _blinkConfig.TeamCityConfig.Password = password;
-                });
+                    IsValid = tcClient.Authenticate();
+                }
+                catch (Exception e)
+                {
+                    IsValid = false;
+                }
+                IsTesting = false;
+                _blinkConfig.TeamCityConfig.Password = password;
             });
         }
 

@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using TCBlink.NET.Common;
 using TCBlink.NET.Explorer.WizardPages.ColorSelector;
+using TCBlink.NET.Explorer.WizardPages.TeamCityBranch;
 using TCBlink.NET.Explorer.WizardPages.TeamCityBuild;
 using TCBlink.NET.Explorer.WizardPages.TeamCityConnection;
 
@@ -27,6 +28,7 @@ namespace TCBlink.NET.Explorer.ViewModel
             SimpleIoc.Default.Register(() => new ColorSelectorModel(_blinkConfig));
             SimpleIoc.Default.Register(() => new TeamCityConnectionModel(_blinkConfig));
             SimpleIoc.Default.Register(() => new TeamCityBuildSelectorModel(_blinkConfig));
+            SimpleIoc.Default.Register(() => new TeamCityBranchModel(_blinkConfig));
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
@@ -36,6 +38,8 @@ namespace TCBlink.NET.Explorer.ViewModel
         public TeamCityConnectionModel TeamCityConnection => ServiceLocator.Current.GetInstance<TeamCityConnectionModel>();
 
         public TeamCityBuildSelectorModel TeamCityBuildSelector => ServiceLocator.Current.GetInstance<TeamCityBuildSelectorModel>();
+
+        public TeamCityBranchModel TeamCityBranch => ServiceLocator.Current.GetInstance<TeamCityBranchModel>();
 
         public static TCBlinkConfig BlinkConfig => _blinkConfig;
 

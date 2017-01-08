@@ -1,0 +1,47 @@
+﻿<xctk:WizardPage x:Class="TCBlink.NET.Explorer.WizardPages.TeamCityBranch.TeamCityBranchSelector"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:tcbs="clr-namespace:TCBlink.NET.Explorer.WizardPages.TeamCityBranch"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 xmlns:converters="clr-namespace:TCBlink.NET.Explorer.Converters"
+                 mc:Ignorable="d"
+                 d:DesignHeight="300" d:DesignWidth="300"
+                 CanFinish="{Binding IsValid}"
+                 DataContext="{Binding TeamCityBranch, Source={StaticResource Locator}}">
+    <xctk:WizardPage.Resources>
+        <converters:NullableBooleanColorConverter x:Key="ColorConverter" />
+    </xctk:WizardPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="{x:Static tcbs:TeamCityBranchSelectori18n.BranchLbl}"
+               Grid.Row="1" Grid.Column="0" />
+
+        <TextBox Text="{Binding Branch, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="1" Grid.Column="1" />
+
+        <Label Content="{x:Static tcbs:TeamCityBranchSelectori18n.ConnectionStateLbl}"
+               Grid.Row="3" Grid.Column="0" />
+
+        <Rectangle Stroke="Black" Fill="{Binding IsValid, Converter={StaticResource ColorConverter}}"
+                   Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                   Grid.Row="3" Grid.Column="1" />
+
+        <Button Content="{x:Static tcbs:TeamCityBranchSelectori18n.TestConnectionBtnLbl}"
+                Command="{Binding CheckBranch}"
+                Grid.Row="5" Grid.Column="1" />
+    </Grid>
+</xctk:WizardPage>

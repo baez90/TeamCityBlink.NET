@@ -16,7 +16,8 @@
         <DataGrid ItemsSource="{Binding AvailableBuildConfigurations}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
-                  CanUserDeleteRows="False">
+                  CanUserDeleteRows="False"
+                  SelectedItem="{Binding SelectedBuildConfig}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" 
                                     Header="{x:Static tcbs:TeamCityBuildSelectori18n.IdColumnLbl}"/>
